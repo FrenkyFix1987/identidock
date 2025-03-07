@@ -25,6 +25,8 @@ jobs:
       uses: docker/metadata-action@v5.7.0
       with:
         images: frankyfix6605/identidock
+        tags: |
+          type=ref,event=branch,value={{commit_date 'YYYYMMDD-HHmmss'}}	
 
     - name: Build and push Docker image
       id: push
@@ -35,6 +37,3 @@ jobs:
         push: true
         tags: ${{ steps.meta.outputs.tags }}
         labels: ${{ steps.meta.outputs.labels }}
-          
-    - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag frankyfix6605/identidock:$(date +%s)
