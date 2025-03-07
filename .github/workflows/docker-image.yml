@@ -26,7 +26,7 @@ jobs:
       with:
         images: frankyfix6605/identidock
         tags: |
-          type=ref,event=branch,value={{commit_date 'YYYYMMDD-HHmmss'}}	
+          type=row,value=test
 
     - name: Build and push Docker image
       id: push
