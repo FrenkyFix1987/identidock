@@ -26,7 +26,7 @@ jobs:
       with:
         images: frankyfix6605/identidock
         tags: |
-          type=row,value=test
+          type=raw,value={{date 'YYYYMMDD-HHmmss' tz='Asia/Jerusalem'}}	
 
     - name: Build and push Docker image
       id: push
